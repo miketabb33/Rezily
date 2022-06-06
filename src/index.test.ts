@@ -1,7 +1,23 @@
-import { sum } from './index'
-describe("test", () => {
-  it("should sum", () => {
-    const result = sum(7, 8)
-    expect(result).toEqual(15)
+import ChaosCoinClient from "./services/chaosCoinClient"
+
+describe('test', () => {
+
+  const chaosCoinClient = new ChaosCoinClient()
+
+  it('default', () => {
+    expect(true).toBeTruthy()
   })
+
+  // it('should', (done) => {
+  //   chaosCoinClient.store("", "")
+  //     .then(res => {
+  //       console.log(res)
+  //     })
+  //     .catch(err => {
+  //       console.log(err.response.data.error)
+  //     })
+  //     .finally(() => {
+  //       done()
+  //     })
+  // })
 })
