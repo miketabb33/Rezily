@@ -1,0 +1,19 @@
+{
+  "name": "rezily",
+  "version": "0.1.0",
+  "description": "An application that integrates with an unstable service. The goal, to make this app resilient against unexpected stability issues with the service.",
+  "scripts": {
+    "start": "nodemon src/index.ts",
+    "test": "jest"
+  },
+  "author": "Michael Tabb",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-typescript": "^7.17.12",
+    "@types/jest": "^28.1.1",
+    "jest": "^28.1.0",
+    "nodemon": "^2.0.16",
+    "ts-node": "^10.8.1"
+  }
+}
