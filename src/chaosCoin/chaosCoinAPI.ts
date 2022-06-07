@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { CHAOS_COIN_BASE_URL } from "../../constants";
+import { CHAOS_COIN_BASE_URL } from "../constants";
 
 export default class ChaosCoinAPI {
   clientInstance: AxiosInstance

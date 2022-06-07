@@ -1,4 +1,4 @@
-import { AxiosResponse } from "axios"
+import { NetworkResponse } from "../models/networkResponse"
 import { formatExcavateResponse, formatRegisterResponse, formatStoreResponse, formatTotalResponse } from "./chaosCoinFormatter"
 
 describe("Chaos Coin Formatter", () => {
@@ -6,7 +6,7 @@ describe("Chaos Coin Formatter", () => {
     const userId = "anyUserId"
     const userName = "anyUserName"
 
-    const fakeResponse: AxiosResponse<any, any> = {
+    const fakeResponse: NetworkResponse = {
       data: { user: userId, name: userName},
       status: 0,
       statusText: "",
@@ -23,7 +23,7 @@ describe("Chaos Coin Formatter", () => {
     const bucketId = "anyBucketId"
     const anyAmount = 12 
 
-    const fakeResponse: AxiosResponse<any, any> = {
+    const fakeResponse: NetworkResponse = {
       data: { bucketId,  gold: { units: anyAmount }},
       status: 0,
       statusText: "",
@@ -38,7 +38,7 @@ describe("Chaos Coin Formatter", () => {
   })
 
   it("should format succesful store response", () => {
-    const fakeResponse: AxiosResponse<any, any> = {
+    const fakeResponse: NetworkResponse = {
       data: true,
       status: 0,
       statusText: "",
@@ -57,7 +57,7 @@ describe("Chaos Coin Formatter", () => {
 
       const userName = "anyUserName"
       const goldTotal = 43
-      const fakeResponse: AxiosResponse<any, any> = {
+      const fakeResponse: NetworkResponse = {
         data: { userName, goldTotal},
         status: 0,
         statusText: "",
@@ -78,7 +78,7 @@ describe("Chaos Coin Formatter", () => {
       var result
       var error
 
-      const fakeResponse: AxiosResponse<any, any> = {
+      const fakeResponse: NetworkResponse = {
         data: true,
         status: 0,
         statusText: "",

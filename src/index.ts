@@ -1,5 +1,5 @@
 import { User } from "./models/user"
-import ChaosCoinService from "./services/chaosCoin/chaosCoinService"
+import ChaosCoinService from "./chaosCoin/chaosCoinService"
 
 var user: User
 

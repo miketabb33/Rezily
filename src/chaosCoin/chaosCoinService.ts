@@ -1,17 +1,17 @@
-import { GoldTotal } from "../../models/goldTotal"
-import { MinedGold } from "../../models/minedGold"
-import { User } from "../../models/user"
+import { GoldTotal } from "../models/goldTotal"
+import { MinedGold } from "../models/minedGold"
+import { User } from "../models/user"
 import ChaosCoinAPI from "./chaosCoinAPI"
-import { isFormatError, isServerError, isTimeout } from "./chaosCoinValidator"
+import { isFormatError, isServerError, isTimeout } from "../utils/networkResponseValidator"
 import { formatExcavateResponse, formatRegisterResponse, formatStoreResponse, formatTotalResponse } from "./chaosCoinFormatter"
-
+import { NetworkResponse } from "../models/networkResponse"
 
 export default class ChaosCoinService {
   private api = new ChaosCoinAPI()
 
   register = async (userName: string): Promise<User> => {
     try {
-      const response = await this.api.callRegister(userName)
+      const response: NetworkResponse = await this.api.callRegister(userName)
       const user = formatRegisterResponse(response)
       return user
     } catch(e: any) {
@@ -25,7 +25,7 @@ export default class ChaosCoinService {
 
   excavate = async (): Promise<MinedGold> => {
     try {
-      const response = await this.api.callExcavate()
+      const response: NetworkResponse = await this.api.callExcavate()
       const minedGold = formatExcavateResponse(response)
       return minedGold
     } catch(e: any) {
@@ -39,7 +39,7 @@ export default class ChaosCoinService {
 
   store = async (userId: string, bucketId: string): Promise<void> => {
     try {
-      const response = await this.api.callStore(userId, bucketId)
+      const response: NetworkResponse = await this.api.callStore(userId, bucketId)
       const isSuccessful = formatStoreResponse(response)
       if(!isSuccessful) {
         console.info('Store was not successful, retrying...')
@@ -56,7 +56,7 @@ export default class ChaosCoinService {
 
   getTotal = async (userId: string): Promise<GoldTotal> => {
     try {
-      const response = await this.api.callTotals(userId)
+      const response: NetworkResponse = await this.api.callTotals(userId)
       const goldTotals = formatTotalResponse(response)
       return goldTotals
     } catch(e: any) {

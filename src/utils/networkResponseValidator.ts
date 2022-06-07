@@ -1,4 +1,4 @@
-import { CONNECTION_ABORTED_ERROR, FORMAT_ERROR } from "../../constants"
+import { CONNECTION_ABORTED_ERROR, FORMAT_ERROR } from "../constants"
 
 export const isServerError = (err: any) => {
   const statusCode: number = err.response?.status
