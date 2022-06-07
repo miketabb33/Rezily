@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios"
-import { formatErrorResponse, formatExcavateResponse, formatRegisterResponse, formatStoreResponse, formatTotalResponse } from "./chaosCoinFormatter"
+import { formatExcavateResponse, formatRegisterResponse, formatStoreResponse, formatTotalResponse } from "./chaosCoinFormatter"
 
 describe("Chaos Coin Formatter", () => {
   it("should format successful register response", () => {
@@ -95,15 +95,5 @@ describe("Chaos Coin Formatter", () => {
       expect(result).toBeUndefined()      
       expect(error).toBeDefined()
     })
-  })  
-
-
-
-  it("should format error response", () => {
-    const anyErrorMessage = "This is an error message"
-    const fakeResponse = { response: { data: { error: anyErrorMessage } } }
-
-    const result = formatErrorResponse(fakeResponse)
-    expect(result).toEqual(anyErrorMessage)
   })
 })

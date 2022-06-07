@@ -47,14 +47,6 @@ export const formatTotalResponse = (response: AxiosResponse<any, any>) => {
   }
 }
 
-export const formatErrorResponse = (errResponse: any) => {
-  try {
-    return unpackProperty(errResponse?.response?.data?.error, "error formatter", errResponse)
-  } catch(err) {
-    throw err
-  }
-}
-
 const unpackProperty = <T>(property: any, title: string, response: any): T => {
   if(property as T) {
     return property

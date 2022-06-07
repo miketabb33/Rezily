@@ -1,7 +1,7 @@
 import { CONNECTION_ABORTED_ERROR, FORMAT_ERROR } from "../../constants"
-import { isFormatError, isServerError, isTimeout } from "./chaosCoinErrorCatcher"
+import { isFormatError, isServerError, isTimeout } from "./chaosCoinValidator"
 
-describe('Chaos Coin Error Catcher', () => {
+describe('Chaos Coin Validator', () => {
   describe('Is Server Error', () => {
     it('should return false when status is below 500', () => {
       const error = { response: { status: 499 } }
