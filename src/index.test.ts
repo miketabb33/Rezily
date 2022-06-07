@@ -1,8 +1,8 @@
-import ChaosCoinClient from "./services/chaosCoinClient"
+import ChaosCoinAPI from "./services/chaosCoin/chaosCoinAPI"
 
 describe('test', () => {
 
-  const chaosCoinClient = new ChaosCoinClient()
+  const chaosCoinClient = new ChaosCoinAPI()
 
   it('default', () => {
     expect(true).toBeTruthy()

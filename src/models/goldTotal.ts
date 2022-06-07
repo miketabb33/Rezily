@@ -1,4 +1,4 @@
-export type GoldTotal = {
+export interface GoldTotal {
   userName: string
-  goldTotal: number
+  amount: number
 }

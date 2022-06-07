@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
-import { CHAOS_COIN_BASE_URL } from "../constants";
+import { CHAOS_COIN_BASE_URL } from "../../constants";
 
-export default class ChaosCoinClient {
+export default class ChaosCoinAPI {
   clientInstance: AxiosInstance
   private clientConfig = {
     baseURL: CHAOS_COIN_BASE_URL
@@ -11,19 +11,19 @@ export default class ChaosCoinClient {
     this.clientInstance = axios.create(this.clientConfig)
   }
 
-  register(userName: string) {
+  callRegister(userName: string) {
     return this.clientInstance.post(`/register?userName=${userName}`)
   }
 
-  excavate() {
+  callExcavate() {
     return this.clientInstance.post(`/excavate`)
   }
   
-  store(userId: string, bucketId: string) {
+  callStore(userId: string, bucketId: string) {
     return this.clientInstance.post(`/store?userId=${userId}&bucketId=${bucketId}`)
   }
 
-  getTotals(userId: string) {
+  callTotals(userId: string) {
     return this.clientInstance.get(`/totals?userId=${userId}`)
   }
 } 
