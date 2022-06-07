@@ -2,6 +2,8 @@ import { AxiosResponse } from "axios";
 import { MinedGold } from "../../models/minedGold";
 import { User } from "../../models/user";
 import { GoldTotal } from "../../models/goldTotal"
+import { stringify } from "flatted";
+import { FORMAT_ERROR } from "../../constants";
 
 export const formatRegisterResponse = (response: AxiosResponse<any, any>) => {
   try {
@@ -57,6 +59,10 @@ const unpackProperty = <T>(property: any, title: string, response: any): T => {
   if(property as T) {
     return property
   } else {
-    throw new Error(`property unpack error - ${title}: ${JSON.stringify(response)}`)
+    throw {
+      code: FORMAT_ERROR,
+      title: `property unpack error - ${title}`,
+      response: `${stringify(response)}`
+    }
   }
 }

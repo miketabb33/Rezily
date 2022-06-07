@@ -4,7 +4,8 @@ import { CHAOS_COIN_BASE_URL } from "../../constants";
 export default class ChaosCoinAPI {
   clientInstance: AxiosInstance
   private clientConfig = {
-    baseURL: CHAOS_COIN_BASE_URL
+    baseURL: CHAOS_COIN_BASE_URL,
+    timeout: 2000,
   }
 
   constructor() {
