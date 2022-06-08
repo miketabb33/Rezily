@@ -1,6 +1,6 @@
 export default class ExponentialBackoff {
-  private timeoutTimeInMS = 800
-  private timeoutCoefficient = 1.3
+  private timeoutTimeInMS = 2000
+  private timeoutCoefficient = 2
   private requestAttempts = 1
 
   getCurrentTimeout = () => {
